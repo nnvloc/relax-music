@@ -1,7 +1,8 @@
 import Models from '@models';
+
 class ProductService {
   constructor() {
-    this.Model = Models.Products;
+    this.Model = Models.ref('Products');
   }
 
   getProducts(filters = {}) {

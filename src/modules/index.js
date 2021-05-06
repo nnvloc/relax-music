@@ -1,12 +1,10 @@
 import { Router } from 'express';
-import userRoutes from './users';
 import AuthRoutes from './authenticate';
 import ProductRoutes from './products';
-import OrderRoutes from './orders';
+import CategoryRoutes from './categories';
 
-const {userRouter, userAdminRouter} = userRoutes;
 const {productRouter, productAdminRouter, productPublicRouter} = ProductRoutes;
-const {orderRouter, orderAdminRouter} = OrderRoutes;
+const {categoryRouter, categoryPublicRouter, categoryAdminRouter} = CategoryRoutes;
 
 const secureRoutes = new Router();
 const publicRoutes = new Router();
@@ -15,13 +13,11 @@ const adminRoutes = new Router();
 publicRoutes.use('/', AuthRoutes);
 publicRoutes.use('/products', productPublicRouter);
 
-secureRoutes.use('/users', userRouter);
 secureRoutes.use('/products', productRouter);
-secureRoutes.use('/orders', orderRouter);
+secureRoutes.use('/categories', categoryRouter);
 
 adminRoutes.use('/products', productAdminRouter);
-adminRoutes.use('/users', userAdminRouter)
-adminRoutes.use('/orders', orderAdminRouter)
+adminRoutes.use('/categories', categoryAdminRouter)
 
 
 export {

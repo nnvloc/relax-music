@@ -5,7 +5,7 @@
  */
 // require("babel-register");
 
-var app = require('../src/index');
+var app = require('../src/server');
 var http = require('http');
 
 /**
